@@ -2,9 +2,9 @@ from datetime import datetime
 from dateutil import tz
 from calendar import monthrange
 
+cost_per_month = 50.0
 sydney_tz = tz.gettz('Australia/Sydney')
 payment_canceled_date = datetime(2019, 2, 15, tzinfo=sydney_tz)
-cost_per_month = 50.0
 
 last_day = monthrange(payment_canceled_date.year, payment_canceled_date.month)[1]
 start_billing_cycle = datetime(payment_canceled_date.year, payment_canceled_date.month, 1, tzinfo=sydney_tz)

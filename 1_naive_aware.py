@@ -9,14 +9,14 @@ class Transaction:
     def __init__(self, sent_from, sent_to, amount, time_of_transaction):
         self.description = sent_from + " sent " + sent_to + " $" + str(amount) + " at: " + time_of_transaction.isoformat()
 
-the_date = date(2019, 2, 19) # Naive date
+the_date = date(2019, 2, 15) # Naive date
 entry = DiaryEntry(the_date, "Back2Base is good")
 print(entry.entry)
 print
 
 aust_east = tz.gettz('Australia/Sydney')
-the_date = datetime(2019, 2, 19, tzinfo=aust_east) # Aware date. Point in time
-entry = DiaryEntry(the_date, "Back2Base is good")
+the_date = datetime(2019, 2, 15, tzinfo=aust_east) # Aware date. Point in time
+entry = DiaryEntry(the_date, "Back2Base is good") #usually wouldn't do a diary entry as 'aware date'
 print(entry.entry)
 print
 
