@@ -1,3 +1,7 @@
-[System.DateTimeOffset] $nowAus = [System.DateTimeOffset]::Now
+$aDate = New-Object -TypeName DateTime -ArgumentList 2019, 2, 11
 
-Write-Output $nowAus.ToString()
+$usaCulture = New-Object -TypeName CultureInfo -ArgumentList "en-us"
+Write-Output $aDate.ToString($usaCulture)
+
+$auCulture = New-Object -TypeName CultureInfo -ArgumentList "en-au"
+Write-Output $aDate.ToString($auCulture)
