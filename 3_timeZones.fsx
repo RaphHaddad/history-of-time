@@ -1,7 +1,7 @@
-#load "CommonDate.fsx"
+#load "CommonDate.fs"
 
 open System
-open CommonDate.Functions
+open CommonDateFunctions
 
 let samoanDate =
     let samoaTimezone = TimeZoneInfo.FindSystemTimeZoneById("Samoa Standard Time")
@@ -9,6 +9,7 @@ let samoanDate =
     DateTimeOffset(2011, 12, 29, 0, 0, 0, 0, offset)
 
 let asUtc = convert TimeZoneInfo.Utc samoanDate
+
 (*
 print samoanDate
 print (samoanDate.AddDays(1.0));;
