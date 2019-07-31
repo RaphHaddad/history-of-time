@@ -1,31 +1,29 @@
-open System
+#load "CommonDate.fs"
 
-let convert (timezone:TimeZoneInfo) (date:DateTimeOffset)  =
-    let offset = timezone.GetUtcOffset date.DateTime
-    date.ToOffset offset
+open System
+open CommonDateFunctions
+
+let print2 date = 
+    printf "%s" "hi"
 
 let add seconds (date:DateTimeOffset) = 
     date.AddSeconds(seconds)
 
-let print date = 
-    let localDate = (convert TimeZoneInfo.Local date).ToString "o"
-    let utcDate   = (convert TimeZoneInfo.Utc date).ToString "o"
- 
-    printfn """
-As Local: %s 
-UTC:      %s """ localDate utcDate
-
-
 let dateUtc  = DateTimeOffset(2019, 4, 6, 15, 59, 59, TimeZoneInfo.Utc.BaseUtcOffset)
-
 let dateLocal = convert TimeZoneInfo.Local dateUtc
 
-print dateUtc;;
-// print (add 1.0 dateUtc);;
+(*
+print TimeZoneInfo.Local dateUtc;;
+add 1.0 dateUtc
+|> print TimeZoneInfo.Local;;
 
-print dateLocal;;
+print TimeZoneInfo.Local dateLocal;;
+add 1.0 dateLocal
+|> print TimeZoneInfo.Local;;
 
-// dateUtc
-// |> add 1.0
-// |> convert TimeZoneInfo.Local
-// |> print
+print TimeZoneInfo.Local dateLocal;;
+dateUtc
+|> add 1.0
+|> convert TimeZoneInfo.Local
+|> print TimeZoneInfo.Local
+*)
