@@ -2,6 +2,12 @@ module CommonDateFunctions
 
 open System
 
+let addSeconds seconds (date:DateTimeOffset) = 
+    date.AddSeconds seconds
+
+let addDays days (date:DateTimeOffset) =
+    date.AddDays days
+
 let convert (timeZone:TimeZoneInfo) (date:DateTimeOffset)  =
     let offset = timeZone.GetUtcOffset date
     date.ToOffset offset

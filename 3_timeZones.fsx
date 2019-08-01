@@ -3,14 +3,18 @@
 open System
 open CommonDateFunctions
 
+let samoaTimezone = TimeZoneInfo.FindSystemTimeZoneById("Samoa Standard Time")
+
 let samoanDate =
-    let samoaTimezone = TimeZoneInfo.FindSystemTimeZoneById("Samoa Standard Time")
-    let offset = samoaTimezone.BaseUtcOffset
-    DateTimeOffset(2011, 12, 29, 0, 0, 0, 0, offset)
+    let date = DateTime(2011, 12, 29)
+    let offset = samoaTimezone.GetUtcOffset date
+    DateTimeOffset(date, offset)
 
-let asUtc = convert TimeZoneInfo.Utc samoanDate
+addDays 1.0 samoanDate
+|> convert samoaTimezone
+|> print;;
 
-(*
-print samoanDate
-print (samoanDate.AddDays(1.0));;
-*)
+convert TimeZoneInfo.Utc samoanDate
+|> addDays 3.0
+|> convert samoaTimezone
+|> print;;
