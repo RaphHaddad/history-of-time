@@ -1,4 +1,4 @@
-// a scenario where UTC doesn't make much sense
+// a scenario where UTC doesn't make much sense to store or calculate from
 open System;
 
 let melbOffset = TimeZoneInfo.Local.BaseUtcOffset;
@@ -14,4 +14,4 @@ let totalToRefund (date:DateTimeOffset) monthlyCost =
     let costPerDay = monthlyCost / (daysInMonth |> float)
     costPerDay * (daysBilled |> float)
 
-printfn "%.2f" (totalToRefund (DateTimeOffset(2019, 2, 15, 0, 0, 0, melbOffset)) 50.0)
+printfn "$%.2f" (totalToRefund (DateTimeOffset(2019, 2, 15, 0, 0, 0, melbOffset)) 50.0)

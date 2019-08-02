@@ -2,10 +2,9 @@
 open System
 
 let createDiaryEntry text (date:DateTime) = 
-    printfn """-----
-Date: %s
+    printfn """Date: %s
 -----
-%s""" (date.ToString "o") text
+%s""" (date.ToString "d") text
 
 let createTransaction amount (date:DateTime) = 
     printfn "Bob sent Alice $%d on %s" amount (date.ToString "o") 

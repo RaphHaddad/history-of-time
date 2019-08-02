@@ -9,7 +9,11 @@ let addDays days (date:DateTimeOffset) =
     date.AddDays days
 
 let convert (timeZone:TimeZoneInfo) (date:DateTimeOffset)  =
-    let offset = timeZone.GetUtcOffset date
+    let offset = timeZone.GetUtcOffset date //Offset for this timezone at this particular point in time (aware date)
+    date.ToOffset offset
+
+let convertWrong (timeZone:TimeZoneInfo) (date:DateTimeOffset)  =
+    let offset = timeZone.BaseUtcOffset //Current offset
     date.ToOffset offset
 
 let print (date:DateTimeOffset) = 
