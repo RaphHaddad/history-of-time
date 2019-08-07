@@ -3,7 +3,7 @@ open System;
 
 let melbOffset = TimeZoneInfo.Local.BaseUtcOffset;
 
-let totalToRefund (date:DateTimeOffset) monthlyCost = 
+let refund (date:DateTimeOffset) monthlyCost = 
     let firstDate =  DateTimeOffset(date.Year, date.Month, 1, 0, 0, 0, melbOffset)
     let lastDayOfMonth = DateTime.DaysInMonth(date.Year, date.Month)
     let lastDate = DateTimeOffset(date.Year, date.Month, lastDayOfMonth, 0, 0, 0, melbOffset)
@@ -14,4 +14,4 @@ let totalToRefund (date:DateTimeOffset) monthlyCost =
     let costPerDay = monthlyCost / (daysInMonth |> float)
     costPerDay * (daysBilled |> float)
 
-printfn "$%.2f" (totalToRefund (DateTimeOffset(2019, 2, 15, 0, 0, 0, melbOffset)) 50.0)
+printfn "$%.2f" (refund (DateTimeOffset(2019, 2, 15, 0, 0, 0, melbOffset)) 50.0)

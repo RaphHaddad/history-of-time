@@ -10,15 +10,12 @@ let samoanDate =
     let offset = samoaTimezone.GetUtcOffset date
     DateTimeOffset(date, offset)
 
-let asUtc = convert TimeZoneInfo.Utc samoanDate
-
-
 print samoanDate;;
 addSeconds 1.0 samoanDate
 |> print;;
 
-print asUtc;;
-addSeconds 1.0 asUtc
+convert TimeZoneInfo.Utc samoanDate
+|> addSeconds 1.0
 |> convert samoaTimezone
 |> print;;
 

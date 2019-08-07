@@ -13,7 +13,7 @@ let convert (timeZone:TimeZoneInfo) (date:DateTimeOffset)  =
     date.ToOffset offset
 
 let convertWrong (timeZone:TimeZoneInfo) (date:DateTimeOffset)  =
-    let offset = timeZone.BaseUtcOffset //Current offset
+    let offset = timeZone.BaseUtcOffset //Current offset at current point in time.
     date.ToOffset offset
 
 let print (date:DateTimeOffset) = 
