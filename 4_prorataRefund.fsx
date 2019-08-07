@@ -14,4 +14,5 @@ let refund (date:DateTimeOffset) monthlyCost =
     let costPerDay = monthlyCost / (daysInMonth |> float)
     costPerDay * (daysBilled |> float)
 
-printfn "$%.2f" (refund (DateTimeOffset(2019, 2, 15, 0, 0, 0, melbOffset)) 50.0)
+let subscriptionCanceled = DateTimeOffset(2019, 2, 15, 0, 0, 0, melbOffset)
+printfn "$%.2f" (refund subscriptionCanceled 50.0)
