@@ -3,6 +3,7 @@ open System;
 
 let melbOffset = TimeZoneInfo.Local.BaseUtcOffset;
 
+//Calendar month not rolling month
 let refund (date:DateTimeOffset) monthlyCost = 
     let firstDate =  DateTimeOffset(date.Year, date.Month, 1, 0, 0, 0, melbOffset)
     let lastDayOfMonth = DateTime.DaysInMonth(date.Year, date.Month)
